@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface GroceryDAO {
     @Insert
-    void insert(Grocery grocery);
+    long insert(Grocery grocery);
 
     @Update
     void update(Grocery grocery);
@@ -23,9 +23,12 @@ public interface GroceryDAO {
     void delete(Grocery grocery);
 
     @Query("SELECT * FROM grocery")
-    LiveData<List<Grocery>> getAllGroceries();
+    LiveData<List<Grocery>> getAllLiveDataGroceries();
 
     @Query("DELETE FROM grocery")
     void deleteAllGroceries();
+
+    @Query("SELECT * FROM grocery")
+    List<Grocery> getAllGrocery();
 
 }

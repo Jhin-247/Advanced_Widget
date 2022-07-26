@@ -1,4 +1,4 @@
-package com.example.baseproject.view;
+package com.example.baseproject.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -14,6 +14,11 @@ import java.util.List;
 
 public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.GroceryHolder> {
     private List<Grocery> groceries;
+    private CallBack callBack;
+
+    public GroceryAdapter(CallBack callBack) {
+        this.callBack = callBack;
+    }
 
     @NonNull
     @Override
@@ -25,6 +30,7 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.GroceryH
     public void onBindViewHolder(@NonNull GroceryHolder holder, int position) {
         Grocery grocery = groceries.get(position);
         holder.mBinding.setGrocery(grocery);
+        holder.mBinding.setCallback(callBack);
         holder.mBinding.executePendingBindings();
     }
 

@@ -8,4 +8,11 @@
     <string name="delete">Delete</string>
     <string name="name">Tên:</string>
     <string name="number">Số lượng:</string>
+    <string name="decrease">Giảm</string>
+    <string name="increase">Tăng</string>
+    <string name="add_grocery">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="open_app">Open app</string>
+    <string name="empty">You don\'t have any grocery left</string>
 </resources>

@@ -10,6 +10,7 @@ import com.example.baseproject.db.GroceryDatabase;
 import com.example.baseproject.db.dao.GroceryDAO;
 import com.example.baseproject.db.model.Grocery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroceryRepository {
@@ -19,7 +20,7 @@ public class GroceryRepository {
     public GroceryRepository(Application application){
         GroceryDatabase groceryDatabase = GroceryDatabase.getInstance(application);
         groceryDAO = groceryDatabase.mGroceryDAO();
-        groceries = groceryDAO.getAllGroceries();
+        groceries = groceryDAO.getAllLiveDataGroceries();
     }
 
     public void insert(Grocery grocery){
@@ -50,7 +51,7 @@ public class GroceryRepository {
         handle.post(groceryDAO::deleteAllGroceries);
     }
 
-    public LiveData<List<Grocery>> getAllGroceries(){
+    public LiveData<List<Grocery>> getLiveDataAllGroceries(){
         return groceries;
     }
 }

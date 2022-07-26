@@ -21,7 +21,7 @@ public class MainViewModel extends AndroidViewModel {
     public MainViewModel(@NonNull Application application) {
         super(application);
         mRepo = new GroceryRepository(application);
-        mGroceries = mRepo.getAllGroceries();
+        mGroceries = mRepo.getLiveDataAllGroceries();
     }
 
     public LiveData<List<Grocery>> getGroceries(){

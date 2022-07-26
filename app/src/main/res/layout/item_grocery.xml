@@ -3,9 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="grocery"
             type="com.example.baseproject.db.model.Grocery" />
+
+        <variable
+            name="callback"
+            type="com.example.baseproject.adapter.CallBack" />
+
     </data>
 
     <LinearLayout
@@ -14,24 +20,6 @@
         android:background="@color/black"
         android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cb_bought"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:checked="@={grocery.bought}"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/tv_num"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:text="@{grocery.name}"
-            tools:text="123" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -39,13 +27,32 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="5"
+            android:gravity="center"
+            android:text="@{grocery.name}"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:gravity="center"
-            android:text="@{grocery.num}"
             tools:text="123" />
 
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@{grocery.numberAsString}"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:text="123" />
+
+        <CheckBox
+            android:id="@+id/cb_bought"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="@={grocery.bought}"
+            android:onClick="@{() -> callback.onItemClick(grocery)}" />
     </LinearLayout>
 
 </layout>

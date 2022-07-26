@@ -1,5 +1,6 @@
 package com.example.baseproject.db.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -15,12 +16,12 @@ public class Grocery {
     public Grocery() {
     }
 
-    public String getNum(){
-        return String.valueOf(number);
-    }
-
     public int getId() {
         return id;
+    }
+
+    public String getNumberAsString(){
+        return "SL :" + id;
     }
 
     public void setId(int id) {
